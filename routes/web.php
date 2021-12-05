@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 
@@ -25,8 +26,13 @@ Route::get('/', [FrontendController::class, 'index']);
 Auth::routes();
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//admin
+//login==========admin==========logout 
 Route::get('admin/home', [AdminController::class, 'index']);
 Route::get('admin', [LoginController::class, 'showLoginFrom'])->name('admin.login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+//=================Admin_Backend_Work===============
+//Category Section
+Route::get('admin/category', [CategoryController::class, 'index'])->name('admin.category');
+Route::post('admin/categories-store', [CategoryController::class, 'storeCat'])->name('store.category');
