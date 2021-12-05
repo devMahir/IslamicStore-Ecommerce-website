@@ -1,4 +1,4 @@
-@extends('admin.admin_layout')
+@extends('admin.admin-master')
 
 @push('home_css')
   <link href="{{ asset('backend/') }}lib/rickshaw/rickshaw.min.css" rel="stylesheet">
