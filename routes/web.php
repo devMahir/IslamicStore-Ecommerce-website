@@ -36,3 +36,8 @@ Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logo
 //Category Section
 Route::get('admin/category', [CategoryController::class, 'index'])->name('admin.category');
 Route::post('admin/categories-store', [CategoryController::class, 'storeCat'])->name('store.category');
+Route::get('admin/categories/edit/{cat_id}', [CategoryController::class, 'edit']);
+Route::post('admin/categories-update', [CategoryController::class, 'updateCategory'])->name('update.category');
+Route::get('admin/categories/delete/{cat_id}', [CategoryController::class, 'delete']);
+Route::get('admin/categories/inactive/{cat_id}', [CategoryController::class, 'inactive']);
+Route::get('admin/categories/active/{cat_id}', [CategoryController::class, 'active']);

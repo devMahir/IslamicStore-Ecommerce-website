@@ -34,4 +34,50 @@ class CategoryController extends Controller
         ]);
         return Redirect()-> back()->with('success', 'Category Added');
     }
+
+    //============================ Category Edit data ====================
+    public function edit($cat_id)
+    {
+        $category = Category::find($cat_id);
+        return view ('admin.category.edit', compact('category'));
+    }
+
+    //============================ Update Category ===================
+
+    public function updateCategory(Request $request)
+    {
+        $cat_id = $request -> cat_id;
+
+        Category::find($cat_id)->update([
+            'category_name' => $request->category_name,
+            'updated_at' => Carbon::now(),
+        ]);
+        return Redirect()-> route('admin.category')->with('catUpdated', 'Category Updated');
+    }
+
+    //============================ Delete Category ===================
+
+    public function delete($cat_id)
+    {
+        Category::find($cat_id)->delete();
+        return Redirect()->back()->with('delete', 'Category Deleted');
+    }
+
+    //============================ Category status Inactive ===================
+    public function inactive($cat_id)
+    {
+        Category::find($cat_id)->update([
+            'status' => 0
+        ]);
+        return Redirect()->back()->with('delete', 'Category Inactivated');
+    }
+
+    //============================ Category status Active ===================
+    public function active($cat_id)
+    {
+        Category::find($cat_id)->update([
+            'status' => 1
+        ]);
+        return Redirect()->back()->with('catUpdated', 'Category Activated');
+    }
 }
