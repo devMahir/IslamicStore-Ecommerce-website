@@ -1,20 +1,20 @@
 @extends('admin.admin-master')
 
-@section('category') active @endsection
+@section('brand') active @endsection
 
 @section('admin_content')
 
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Starlight</a>
-      <span class="breadcrumb-item active">Dashboard</span>
+      <a class="breadcrumb-item" href="index.html">Admin</a>
+      <span class="breadcrumb-item active">Brand</span>
     </nav>
 
     <div class="sl-pagebody">
         <div class="row row-sm">
             <div class="col-md-8">
                 <div class="card pd-20 pd-sm-40">
-                    <h6 class="card-body-title">Category List</h6>
+                    <h6 class="card-body-title">Brand List</h6>
                     @if (session('catUpdated'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>{{session('catUpdated')}}</strong>
@@ -36,7 +36,7 @@
                         <thead>
                             <tr>
                                 <th class="wd-15p">Sl</th>
-                                <th class="wd-15p">Category Name</th>
+                                <th class="wd-15p">Brand Name</th>
                                 <th class="wd-20p">Status</th>
                                 <th class="wd-15p">Action</th>
                             </tr>
@@ -45,27 +45,25 @@
                             $i = 1;
                         @endphp
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($brands as $row)
                                 <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $category -> category_name }}</td>
+                                    <td>{{ $row -> brand_name }}</td>
                                     <td>
-                                        @if ($category -> status == 1)
+                                        @if ($row -> status == 1)
                                             <span class="badge badge-success">Active</span>
                                         @else
                                             <span class="badge badge-danger">Inactive</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('admin/categories/edit', $category->id) }}" class="btn btn-sm btn-success">Edit</a>
-                                        <a href="{{ url('admin/categories/delete', $category->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                                        @if ($category -> status == 1)
-                                            <a href="{{ url('admin/categories/inactive', $category->id) }}" class="btn btn-sm btn-danger">Inactive</a>
+                                        <a href="{{ url('admin/brand/edit', $row->id) }}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ url('admin/brand/delete', $row->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        @if ($row -> status == 1)
+                                            <a href="{{ url('admin/brand/inactive', $row->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-arrow-down"></i></a>
                                         @else
-                                            <a href="{{ url('admin/categories/active', $category->id) }}" class="btn btn-sm btn-success">Active</a>
+                                            <a href="{{ url('admin/brand/active', $row->id) }}" class="btn btn-sm btn-success"><i class="fa fa-arrow-up"></i></a>
                                         @endif
-                                        
-                                        
                                     </td>
                                 </tr> 
                             @endforeach
@@ -76,7 +74,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">Add Category
+                    <div class="card-header">Add Brand
 
                     </div>
                     <div class="card-body">
@@ -88,18 +86,18 @@
                                 </button>
                             </div>
                         @endif
-                        <form action="{{ route('store.category') }}" method="POST">
+                        <form action="{{ route('store.brand') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="exampleInputEmail">Add Categorey</label>
-                                <input type="text" name="category_name" class="form-control @error('category_name') is-invalid                            
-                                @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Category">
+                                <label for="exampleInputEmail">Brand Name</label>
+                                <input type="text" name="brand_name" class="form-control @error('brand_name') is-invalid                            
+                                @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Brand">
                                 
-                                @error('category_name')
+                                @error('brand_name')
                                     <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary">Add Brand</button>
                         </form>
                     </div>
                 </div>
