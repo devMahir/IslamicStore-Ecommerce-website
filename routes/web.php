@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 
@@ -55,3 +56,10 @@ Route::post('admin/brand-update', [BrandController::class, 'update'])->name('upd
 Route::get('admin/brand/delete/{brand_id}', [BrandController::class, 'delete']);
 Route::get('admin/brand/inactive/{brand_id}', [BrandController::class, 'inactive']);
 Route::get('admin/brand/active/{brand_id}', [BrandController::class, 'active']);
+
+
+//Product Section
+Route::get('admin/products/add_products', [ProductController::class, 'addProduct'])->name('add_products');
+
+
+
