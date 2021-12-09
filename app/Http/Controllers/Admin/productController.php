@@ -47,17 +47,18 @@ class productController extends Controller
 
         $image_one = $request->file('image_one');
         $name_gen = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
-        Image::make($image_one)->resize(270,270)->save('frontend/img/product/upload/',$name_gen);
+        Image::make($image_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);
         $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+        
 
         $image_two = $request->file('image_two');
         $name_gen = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
-        Image::make($image_two)->resize(270,270)->save('frontend/img/product/upload/',$name_gen);
+        Image::make($image_two)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);
         $img_url2 = 'frontend/img/product/upload/'.$name_gen;
 
         $image_three = $request->file('image_three');
         $name_gen = hexdec(uniqid()).'.'.$image_three->getClientOriginalExtension();
-        Image::make($image_three)->resize(270,270)->save('frontend/img/product/upload/',$name_gen);
+        Image::make($image_three)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);
         $img_url3 = 'frontend/img/product/upload/'.$name_gen;
 
         Product::insert([
