@@ -60,6 +60,6 @@ Route::get('admin/brand/active/{brand_id}', [BrandController::class, 'active']);
 
 //Product Section
 Route::get('admin/products/add_products', [ProductController::class, 'addProduct'])->name('add_products');
-
+Route::post('admin/products/store', [ProductController::class, 'storeProduct'])->name('store_products');
 
 
