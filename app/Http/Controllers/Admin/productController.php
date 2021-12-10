@@ -192,7 +192,7 @@ class productController extends Controller
             return Redirect()->route('manage_products')->with('success','image successfully Updated');
          }
 
-         if ($request->has('image_three')) {
+        if ($request->has('image_three')) {
             unlink($old_three);
             $imag_one = $request->file('image_three');                
             $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
@@ -206,5 +206,32 @@ class productController extends Controller
 
             return Redirect()->route('manage_products')->with('success','image successfully Updated');
         }
+    }
+
+    // ============================ Delete product ====================
+    public function destroy($product_id){
+        $image = Product::findOrFail($product_id);
+        $img_one = $image->image_one;
+        $img_two = $image->image_two;
+        $img_three = $image->image_three;
+        unlink($img_one);
+        unlink($img_two);
+        unlink($img_three);
+
+        Product::findOrFail($product_id)->delete();
+        return Redirect()->back()->with('delete','successfully Deleted');
+    }
+
+    // ============================ Status Active ==================== 
+     public function Inactive($product_id){
+        Product::findOrFail($product_id)->update(['status' => 0]);
+        return Redirect()->back()->with('status','Product inactive');
+    }
+
+    
+    // ============================ Status Inactive ====================
+    public function Active($product_id){
+        Product::findOrFail($product_id)->update(['status' => 1]);
+        return Redirect()->back()->with('status','Product Activated');
     }
 }

@@ -65,3 +65,6 @@ Route::get('admin/products/manage', [ProductController::class, 'manageProduct'])
 Route::get('admin/products/edit/{product_id}', [ProductController::class, 'editProduct']);
 Route::post('admin/products/update', [ProductController::class, 'updateProduct'])->name('update_products');
 Route::post('admin/products/image-update', [ProductController::class, 'updateImage'])->name('update_image');
+Route::get('admin/products/delete/{product_id}',[ProductController::class, 'destroy']);
+Route::get('admin/products/inactive/{product_id}',[ProductController::class, 'Inactive']);
+Route::get('admin/products/active/{product_id}',[ProductController::class, 'Active']);
