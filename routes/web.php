@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 
@@ -68,3 +69,17 @@ Route::post('admin/products/image-update', [ProductController::class, 'updateIma
 Route::get('admin/products/delete/{product_id}',[ProductController::class, 'destroy']);
 Route::get('admin/products/inactive/{product_id}',[ProductController::class, 'Inactive']);
 Route::get('admin/products/active/{product_id}',[ProductController::class, 'Active']);
+
+
+//Coupon
+Route::get('admin/coupon',[CouponController::class, 'index'])->name('admin.coupon');
+Route::post('admin/coupon/store',[CouponController::class, 'store'])->name('store.coupon');
+Route::get('admin/coupon/edit/{coupon_id}',[CouponController::class, 'couponEdit']);
+Route::post('admin/coupon-update',[CouponController::class, 'update'])->name('update.coupon');
+Route::get('admin/coupon/delete/{coupon_id}',[CouponController::class, 'couponDelete']);
+Route::get('admin/coupon/inactive/{coupon_id}',[CouponController::class, 'Inactive']);
+Route::get('admin/coupon/active/{coupon_id}',[CouponController::class, 'Active']);
+
+
+
+
