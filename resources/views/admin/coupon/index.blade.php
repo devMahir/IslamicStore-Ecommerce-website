@@ -36,7 +36,7 @@
                       <tr>
                         <th class="wd-15p">Sl</th>
                         <th class="wd-15p">Coupon Name</th>
-{{--                         <th class="wd-15p">Coupon Discount</th> --}}
+                        <th class="wd-15p">Coupon Discount</th>
                         <th class="wd-20p">Status</th>  
                         <th class="wd-25p">Action</th>
                       </tr>
@@ -49,7 +49,7 @@
                       <tr>
                         <td>{{ $i++ }}</td>
                         <td>{{ $row->coupon_name }}</td>
-{{--                         <td>{{ $row->discount }}%</td> --}}
+                        <td>{{ $row->discount }}%</td>
                         <td>
                             @if($row->status == 1)
                             <span class="badge badge-success">Active</span>
@@ -101,7 +101,7 @@
 
                         </div>
 
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                           <label for="exampleInputEmail1">coupon Discount</label>
                           <input type="text" name="discount" class="form-control @error('discount') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter coupon discount %">
 
@@ -109,7 +109,7 @@
                             <span class="text-danger">{{$message}}</span>
                           @enderror
 
-                        </div> --}}
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Add coupon</button>
                     </form>

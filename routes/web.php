@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,5 +82,12 @@ Route::get('admin/coupon/inactive/{coupon_id}',[CouponController::class, 'Inacti
 Route::get('admin/coupon/active/{coupon_id}',[CouponController::class, 'Active']);
 
 
+//=================Frontend_Part=====================
 
-
+//Cart
+Route::post('add/to-cart/{prouct_id}', [CartController::class, 'addToCart']);
+Route::get('cart', [CartController::class, 'cartPage']);
+Route::get('cart/destroy/{cart_id}', [CartController::class, 'destroy']);
+Route::post('cart/quantity/update/{cart_id}', [CartController::class, 'quantityUpdate']);
+Route::post('coupon/apply', [CartController::class, 'applyCoupon']);
+Route::get('coupon/destroy', [CartController::class, 'couponDestroy']);

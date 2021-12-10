@@ -44,12 +44,12 @@ class productController extends Controller
             'category_id.required' => 'Select Category Name',
             'brand_id.required' => 'Select Brand Name',
         ]);
+        
 
         $image_one = $request->file('image_one');
         $name_gen = hexdec(uniqid()).'.'.$image_one->getClientOriginalExtension();
         Image::make($image_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);
         $img_url1 = 'frontend/img/product/upload/'.$name_gen;
-        
 
         $image_two = $request->file('image_two');
         $name_gen = hexdec(uniqid()).'.'.$image_two->getClientOriginalExtension();
@@ -62,21 +62,21 @@ class productController extends Controller
         $img_url3 = 'frontend/img/product/upload/'.$name_gen;
 
         Product::insert([
-            'category_id' => $request->category_id,
-            'product_code' => $request->product_code,
-            'brand_id' => $request->brand_id,
             'product_name' => $request->product_name,
-            'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
+            'product_code' => $request->product_code,
             'price' => $request->price,
             'product_quantity' => $request->product_quantity,
+            'category_id' => $request->category_id,
+            'brand_id' => $request->brand_id,
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'image_one' => $img_url1,
             'image_two' => $img_url2,
             'image_three' => $img_url3,
             'created_at' => Carbon::now(),
+            'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
         ]);
-        return Redirect()->back()->with('success','Product Added');
+       return Redirect()->back()->with('success','Product Added');
     }
 
 
@@ -113,9 +113,7 @@ class productController extends Controller
         ]);
 
         return Redirect()->route('manage_products')->with('success','Product Successfully Updated');
-
     }
-
 
     // ============================ Update Image ==================== 
     public function updateImage(Request $request){

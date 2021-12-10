@@ -23,7 +23,7 @@ class CouponController extends Controller
     public function Store(Request $request){
         Coupon::insert([
             'coupon_name' => strtoupper($request->coupon_name),
-            /*'discount' => $request->discount, */
+            'discount' => $request->discount,
             'created_at' => Carbon::now(),
         ]);
  

@@ -143,7 +143,6 @@
                                     @enderror
                                     </div>
                                 </div><!-- col-4 -->
-
                             </div><!-- row -->
                             <div class="form-layout-footer">
                                 <button class="btn btn-info mg-r-5">Add Product</button>
