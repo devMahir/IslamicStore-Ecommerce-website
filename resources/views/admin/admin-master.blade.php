@@ -100,7 +100,7 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
-        <a href="#" class="sl-menu-link" @yield('products')>
+        <a href="#" class="sl-menu-link @yield('products')">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
             <span class="menu-item-label">Products</span>
@@ -109,8 +109,8 @@
         </a><!-- sl-menu-link -->
 
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{ route('add_products') }}" class="nav-link" @yield('add_products')>Add Products</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link">Flot Charts</a></li>
+          <li class="nav-item"><a href="{{ route('add_products') }}" class="nav-link @yield('add_products')">Add Products</a></li>
+          <li class="nav-item"><a href="{{ route('manage_products') }}" class="nav-link @yield('manage_products')">Manage Product</a></li>
         </ul>
       </div><!-- sl-sideleft-menu -->
 

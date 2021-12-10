@@ -61,5 +61,7 @@ Route::get('admin/brand/active/{brand_id}', [BrandController::class, 'active']);
 //Product Section
 Route::get('admin/products/add_products', [ProductController::class, 'addProduct'])->name('add_products');
 Route::post('admin/products/store', [ProductController::class, 'storeProduct'])->name('store_products');
-
-
+Route::get('admin/products/manage', [ProductController::class, 'manageProduct'])->name('manage_products');
+Route::get('admin/products/edit/{product_id}', [ProductController::class, 'editProduct']);
+Route::post('admin/products/update', [ProductController::class, 'updateProduct'])->name('update_products');
+Route::post('admin/products/image-update', [ProductController::class, 'updateImage'])->name('update_image');

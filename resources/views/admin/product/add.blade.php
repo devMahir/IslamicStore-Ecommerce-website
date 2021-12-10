@@ -1,6 +1,7 @@
 @extends('admin.admin-master')
 
-@section('products') active @endsection
+@section('products') active show-sub @endsection
+@section('add_products') active @endsection
 
 @section('admin_content')
 

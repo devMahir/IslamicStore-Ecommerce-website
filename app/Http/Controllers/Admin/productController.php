@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
-use Image;
+use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 
 class productController extends Controller
@@ -26,7 +26,7 @@ class productController extends Controller
     }
 
     //============================ Store Product ====================
-    public function storeProduct(Request $request )
+    public function storeProduct(Request $request)
     {
         $request -> validate([
             'product_name' => 'required|max:225',
@@ -80,4 +80,131 @@ class productController extends Controller
     }
 
 
+    //============================ Manage Product ====================
+    public function manageProduct(Request $request )
+    {
+        $products = Product::orderBy('id', 'DESC')->get();
+        return view('admin.product.manage', compact('products'));
+    }
+
+    //============================ Edit Product ====================
+    public function editProduct($product_id)
+    {
+        $categories = Category::latest()->get();
+        $brands = Brand::latest()->get();
+        $product = Product::findOrFail($product_id);
+        return view ('admin.product.edit', compact('product', 'categories', 'brands'));
+    }
+
+    //============================ Update Product ====================
+    public function updateProduct(Request $request){
+        $product_id = $request->id;
+        Product::findOrFail($product_id)->Update([
+            'category_id' => $request->category_id,
+            'brand_id' => $request->brand_id,
+            'product_name' => $request->product_name,
+            'product_slug' => strtolower(str_replace(' ','-',$request->product_name)),
+            'product_code' => $request->product_code,
+            'price' => $request->price,
+            'product_quantity' => $request->product_quantity,
+            'short_description' => $request->short_description,
+            'long_description' => $request->long_description,
+            'update_at' => Carbon::now(),
+        ]);
+
+        return Redirect()->route('manage_products')->with('success','Product Successfully Updated');
+
+    }
+
+
+    // ============================ Update Image ==================== 
+    public function updateImage(Request $request){
+        $product_id = $request->id;
+        $old_one = $request->img_one;
+        $old_two = $request->img_two;
+        $old_three = $request->img_three;
+
+
+        if ($request->has('image_one') && $request->has('image_two') && $request->has('image_three')) {
+            unlink($old_one);
+            unlink($old_two);
+            unlink($old_three);
+            $imag_one = $request->file('image_one');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_one' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $imag_one = $request->file('image_two');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_two' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $imag_one = $request->file('image_three');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_three' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            return Redirect()->route('manage_products')->with('success','image successfully Updated');
+         }
+         
+        if ($request->has('image_one')) {
+            unlink($old_one);
+            $imag_one = $request->file('image_one');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_one' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            return Redirect()->route('manage_products')->with('success','image successfully Updated');
+        }
+
+        if ($request->has('image_two')) {
+            unlink($old_two);
+            $imag_one = $request->file('image_two');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_two' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            return Redirect()->route('manage_products')->with('success','image successfully Updated');
+         }
+
+         if ($request->has('image_three')) {
+            unlink($old_three);
+            $imag_one = $request->file('image_three');                
+            $name_gen = hexdec(uniqid()).'.'.$imag_one->getClientOriginalExtension();
+            Image::make($imag_one)->resize(270,270)->save('frontend/img/product/upload/'.$name_gen);       
+            $img_url1 = 'frontend/img/product/upload/'.$name_gen;
+
+            Product::findOrFail($product_id)->update([
+                'image_three' => $img_url1,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            return Redirect()->route('manage_products')->with('success','image successfully Updated');
+        }
+    }
 }
