@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +92,9 @@ Route::get('cart/destroy/{cart_id}', [CartController::class, 'destroy']);
 Route::post('cart/quantity/update/{cart_id}', [CartController::class, 'quantityUpdate']);
 Route::post('coupon/apply', [CartController::class, 'applyCoupon']);
 Route::get('coupon/destroy', [CartController::class, 'couponDestroy']);
+
+
+//wishlist 
+Route::get('add/to-wishlist/{prouct_id}', [WishlistController::class, 'addToWishlist']);
+Route::get('wishlist', [WishlistController::class, 'wishPage']);
+Route::get('wishlist/destroy/{wishlist_id}', [WishlistController::class, 'destroy']);
