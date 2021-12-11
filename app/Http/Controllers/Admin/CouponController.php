@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Coupon;
 use Carbon\Carbon;
+use App\Models\Order;
+use App\Models\Orderitem;
+use App\Models\Shipping;
+use PHPUnite\Framework\Constraint\Count;
 
 class CouponController extends Controller
 {
@@ -62,5 +66,19 @@ class CouponController extends Controller
     public function Active($coupon_id){
         Coupon::find($coupon_id)->update(['status' => 1]);
         return Redirect()->back()->with('status','Coupon Activated');
+    }
+
+    //=================== Order ==========================
+    public function orderIndex(){
+        $orders = Order::latest()->get();
+        return view('admin.order.index',compact('orders'));
+    }
+
+    //===================  view Order ==========================
+    public function viewOrder($order_id){
+        $order = Order::findOrFail($order_id);
+        $orderItems = OrderItem::where('order_id',$order_id)->get();
+        $shipping = Shipping::where('order_id',$order_id)->first();
+        return view('admin.order.view',compact('order','orderItems','shipping'));
     }
 }

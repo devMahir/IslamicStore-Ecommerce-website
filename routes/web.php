@@ -84,6 +84,10 @@ Route::get('admin/coupon/delete/{coupon_id}',[CouponController::class, 'couponDe
 Route::get('admin/coupon/inactive/{coupon_id}',[CouponController::class, 'Inactive']);
 Route::get('admin/coupon/active/{coupon_id}',[CouponController::class, 'Active']);
 
+//Order
+Route::get('admin/orders',[CouponController::class, 'orderIndex'])->name('admin.orders');
+Route::get('admin/orders/view/{id}',[CouponController::class, 'viewOrder']);
+
 
 //=================Frontend_Part=====================
 
