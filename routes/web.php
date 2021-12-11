@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,3 +100,13 @@ Route::get('coupon/destroy', [CartController::class, 'couponDestroy']);
 Route::get('add/to-wishlist/{prouct_id}', [WishlistController::class, 'addToWishlist']);
 Route::get('wishlist', [WishlistController::class, 'wishPage']);
 Route::get('wishlist/destroy/{wishlist_id}', [WishlistController::class, 'destroy']);
+
+
+//Product Details
+Route::get('product/details/{product_id}', [FrontendController::class, 'productDetail']);
+
+
+//checkout page
+Route::get('checkout', [CheckoutController::class, 'index']);
+Route::post('place/order', [OrderController::class, 'storeOrder'])->name('place_order');
+Route::get('order/success', [OrderController::class, 'orderSuccess']);
