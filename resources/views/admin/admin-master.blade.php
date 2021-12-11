@@ -74,56 +74,60 @@
       <div class="sl-sideleft-menu">
         <a href="{{ url('admin/home') }}" class="sl-menu-link @yield('dashboard')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Dashboard</span>
+            <i class="fa fa-laptop menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Dashboard</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <a href="{{ url('/') }}" target="_blank" class="sl-menu-link">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Visit Site</span>
+            <i class="fa fa-globe menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Visit Site</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <a href="{{ route('admin.category') }}" class="sl-menu-link @yield('category')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Category</span>
+            <i class="fa fa-navicon icon menu-item-icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Category</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <a href="{{ route('admin.brand') }}" class="sl-menu-link @yield('brand')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Brand</span>
+            <i class="fa fa-shield menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Brand</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <a href="#" class="sl-menu-link @yield('products')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
-            <span class="menu-item-label">Products</span>
+            <i class="fa fa-cube menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Products</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{ route('add_products') }}" class="nav-link @yield('add_products')">Add Products</a></li>
+          <li class="nav-item">
+            <a href="{{ route('add_products') }}" class="nav-link @yield('add_products')">
+              <span class="menu-item-label">Add Products</span>
+            </a>
+          </li>
           <li class="nav-item"><a href="{{ route('manage_products') }}" class="nav-link @yield('manage_products')">Manage Product</a></li>
         </ul>
 
         <a href="{{ route('admin.coupon') }}" class="sl-menu-link @yield('coupon')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Coupon</span>
+            <i class="fa fa-ticket menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Coupon</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 
         <a href="{{ route('admin.orders') }}" class="sl-menu-link @yield('orders')">
           <div class="sl-menu-item">
-            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Orders</span>
+            <i class="fa fa-truck menu-item-icon icon tx-22"></i>
+            <span class="menu-item-label" style="margin-left: 20px;">Orders</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 

@@ -6,9 +6,9 @@
 
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Starlight</a>
-      <span class="breadcrumb-item active">Category</span>
-      <span class="breadcrumb-item active">Edit</span>
+        <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+        <a href="{{ route('admin.category') }}" class="breadcrumb-item active">Category</a>
+        <span class="breadcrumb-item active">Edit</span>
     </nav>
 
     <div class="sl-pagebody">

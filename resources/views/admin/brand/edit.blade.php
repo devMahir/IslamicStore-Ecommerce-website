@@ -6,8 +6,8 @@
 
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Admin</a>
-      <span class="breadcrumb-item active">Brand</span>
+      <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+      <a href="{{ route('admin.brand') }}" class="breadcrumb-item active">Brands</a>
       <span class="breadcrumb-item active">Edit</span>
     </nav>
 

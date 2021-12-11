@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
@@ -31,10 +32,10 @@ use App\Http\Controllers\OrderController;
 Route::get('/', [FrontendController::class, 'index']);
 
 Auth::routes();
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index'])->name('home');
 
 //login==========admin==========logout 
-Route::get('admin/home', [AdminController::class, 'index']);
+Route::get('admin/home', [AdminController::class, 'index'])->name('admin.home');
 Route::get('admin', [LoginController::class, 'showLoginFrom'])->name('admin.login');
 Route::post('admin', [LoginController::class, 'login']);
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');

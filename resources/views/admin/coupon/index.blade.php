@@ -3,8 +3,8 @@
 @section('admin_content')
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Admin</a>
-      <span class="breadcrumb-item active">coupon</span>
+      <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+      <span class="breadcrumb-item active">Coupon</span>
     </nav>
 
     <div class="sl-pagebody">

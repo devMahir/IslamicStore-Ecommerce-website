@@ -6,7 +6,7 @@
 
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Admin</a>
+        <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
       <span class="breadcrumb-item active">Brand</span>
     </nav>
 
@@ -14,7 +14,7 @@
         <div class="row row-sm">
             <div class="col-md-8">
                 <div class="card pd-20 pd-sm-40">
-                    <h6 class="card-body-title">Brand List</h6>
+                    
                     @if (session('catUpdated'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>{{session('catUpdated')}}</strong>

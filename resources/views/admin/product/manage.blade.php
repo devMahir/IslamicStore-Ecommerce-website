@@ -4,8 +4,8 @@
 @section('admin_content')
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">admin</a>
-      <span class="breadcrumb-item active">manage product</span>
+        <a class="breadcrumb-item" href="{{ route('admin.home') }}">Dashboard</a>
+      <span class="breadcrumb-item active">Products</span>
     </nav>
     <div class="sl-pagebody">
       <div class="row row-sm">
