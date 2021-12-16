@@ -1,5 +1,6 @@
 @extends('layouts.frontend-master')
 @section('content')
+
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
     <div class="container">
@@ -66,30 +67,42 @@
 </section>
 <!-- Breadcrumb Section End -->
 <section class="shoping-cart spad">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            @include('pages.profile.inc.sidebar')
-        </div>
-        <div class="col-sm-8">
-          <div class="card">
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ Auth::user()->name }}">
-                </div>
-
-                <div class="form-group">
-                    <label for="exmEmail">Email</label>
-                    <input type="email" class="form-control" id="exmEmail" aria-describedby="emailHelp" placeholder="Enter email" value="{{ Auth::user()->email }}">
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
-              </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                @include('pages.profile.inc.sidebar')
             </div>
-          </div>
+            <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Invoice No.</th>
+                            <th scope="col">Payment Type</th>
+                            <th scope="col">Sub Total</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($orders as $item)
+                        <tr>
+                            <td>{{ $item->invoice_no }}</td>
+                            <td>{{ $item->payment_type }}</td>
+                            <td>{{ $item->subtotal }}$</td>
+                            <td>{{ $item->total }}$</td>
+                            <td>
+                                <a href="{{ url('user/order-view/'.$item->id) }}" class="btn btn-danger btn-sm">View</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
-</div>
 </section>
 @endsection

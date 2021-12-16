@@ -144,8 +144,8 @@
                                 <h5>Select Payment Method</h5><br>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
-                                        HansCash
-                                        <input type="checkbox" id="payment" value="handcash" name="payment_type">
+                                        COD
+                                        <input type="checkbox" id="payment" value="COD" name="payment_type">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

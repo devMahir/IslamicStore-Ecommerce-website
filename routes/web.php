@@ -13,6 +13,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,3 +116,8 @@ Route::get('product/details/{product_id}', [FrontendController::class, 'productD
 Route::get('checkout', [CheckoutController::class, 'index']);
 Route::post('place/order', [OrderController::class, 'storeOrder'])->name('place_order');
 Route::get('order/success', [OrderController::class, 'orderSuccess']);
+
+
+//user routes
+Route::get('user/order', [UserController::class, 'order'])->name('user.order');
+Route::get('user/order-view/{id}', [UserController::class, 'orderView']);
