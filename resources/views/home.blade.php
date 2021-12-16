@@ -1,8 +1,5 @@
 @extends('layouts.frontend-master')
 @section('content')
-<!-- Hero Section Begin -->
-@include('pages.inc.header')
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="{{ asset('frontend') }}/img/breadcrumb.jpg">

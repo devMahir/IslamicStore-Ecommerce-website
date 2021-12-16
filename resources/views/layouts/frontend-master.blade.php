@@ -102,7 +102,7 @@
                             
                             <div class="header__top__right__auth">
                                 @auth
-                                    <a href="{{ route('home') }}"><i class="fa fa-user"></i> My Account</a>
+                                    <a href="{{ route('home') }}"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
                                 @else
                                 <div>
                                     <a style="display:inline;" href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
