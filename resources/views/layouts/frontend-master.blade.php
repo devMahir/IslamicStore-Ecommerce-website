@@ -72,8 +72,8 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i> mahirshahriar10@gmail.com</li>
+                <li>Free Shipping for all Order of TK 250</li>
             </ul>
         </div>
     </div>
@@ -87,34 +87,28 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> mahirshahriar10@gmail.com</li>
+                                <li>Free Shipping for all Order of TK 250</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a target="_blank" href="https://www.facebook.com/mahir.shahriaradnan/"><i class="fa fa-facebook"></i></a>
+                                <a target="_blank" href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+                                <a target="_blank" href="https://www.instagram.com/mahir_shahriar_/"><i class="fa fa-linkedin"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src=" {{ asset('frontend') }}/img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
+                            
                             <div class="header__top__right__auth">
                                 @auth
                                     <a href="{{ route('home') }}"><i class="fa fa-user"></i> My Account</a>
                                 @else
-                                    <a href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
-                                    <a href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                                <div>
+                                    <a style="display:inline;" href="{{ route('login') }}"><i class="fa fa-user"></i> Login</a>
+                                    <a style="display:inline; margin-left: 10px;" href="{{ route('register') }}"><i class="fa fa-user"></i> Register</a>
+                                </div>
+                                    
                                 @endauth
                             </div>
                         </div>

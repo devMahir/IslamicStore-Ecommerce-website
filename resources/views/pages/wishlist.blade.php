@@ -1,8 +1,5 @@
 @extends('layouts.frontend-master')
 @section('content')
-<!-- Hero Section Begin -->
-@include('pages.inc.header')
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="{{ asset('frontend') }}/img/breadcrumb.jpg">
@@ -12,7 +9,7 @@
                 <div class="breadcrumb__text">
                     <h2>Wishlist Page</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Home</a>
+                        <a href="{{ route('frontend.home') }}">Home</a>
                         <span>Wishlist Page</span>
                     </div>
                 </div>

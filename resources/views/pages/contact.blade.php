@@ -34,7 +34,7 @@
                 <div class="contact__widget">
                     <span class="icon_pin_alt"></span>
                     <h4>Address</h4>
-                    <p>60-49 Road 11378 New York</p>
+                    <p>Block F, Road-3, House-13, Mirpur 1, Dhaka</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -68,7 +68,7 @@
             <ul>
                 <li>Phone: +8801493421368</li>
                 <li>
-                    Gazi Nibash, Section-,Block F, Road-3, House-13,Dhaka, 1216
+                    Gazi Nibash, Block F, Road-3, House-13, Mirpur 1, Dhaka
                 </li>
             </ul>
         </div>
