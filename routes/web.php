@@ -14,6 +14,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ use App\Http\Controllers\UserController;
     return view('welcome');
 }); */
 
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.home');
 
 Auth::routes();
 Route::get('home', [HomeController::class, 'index'])->name('home');
@@ -86,6 +87,7 @@ Route::get('admin/coupon/delete/{coupon_id}',[CouponController::class, 'couponDe
 Route::get('admin/coupon/inactive/{coupon_id}',[CouponController::class, 'Inactive']);
 Route::get('admin/coupon/active/{coupon_id}',[CouponController::class, 'Active']);
 
+
 //Order
 Route::get('admin/orders',[CouponController::class, 'orderIndex'])->name('admin.orders');
 Route::get('admin/orders/view/{id}',[CouponController::class, 'viewOrder']);
@@ -121,3 +123,15 @@ Route::get('order/success', [OrderController::class, 'orderSuccess']);
 //user routes
 Route::get('user/order', [UserController::class, 'order'])->name('user.order');
 Route::get('user/order-view/{id}', [UserController::class, 'orderView']);
+
+ 
+//shop page rotues
+Route::get('shop', [FrontendController::class, 'shopPage'])->name('shop.page');
+
+
+//categorywise product show
+Route::get('category/product-show/{id}', [FrontendController::class, 'catWiseProduct']);
+
+
+//contact
+Route::get('home/contact', [ContactController::class, 'contact'])->name('contact');

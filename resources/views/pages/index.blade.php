@@ -6,21 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All Category</span>
-                    </div>
-                    @php
-                        $categories = App\Models\Category::where('status',1)->latest()->get();
-                    @endphp
-                    <ul>
-                        @foreach ($categories as $row)
-                            <li><a href="#">{{ $row -> category_name }}</a></li>
-                        @endforeach
-                        
-                    </ul>
-                </div>
+                @include('pages.inc.category')
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
@@ -39,7 +25,7 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
+                            <h5>+8801793421368</h5>
                             <span>support 24/7 time</span>
                         </div>
                     </div>
