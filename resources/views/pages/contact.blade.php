@@ -1,4 +1,5 @@
 @extends('layouts.frontend-master')
+@section('frontendContactActive') active @endsection
 @section('content')
 
 <!-- Breadcrumb Section Begin -->

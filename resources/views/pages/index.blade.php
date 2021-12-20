@@ -1,5 +1,5 @@
 @extends('layouts.frontend-master')
-
+@section('frontendHomeActive') active @endsection
 @section('content')
 <!-- Hero Section Begin -->
 <section class="hero">

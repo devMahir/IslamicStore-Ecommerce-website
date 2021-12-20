@@ -58,9 +58,9 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
-                <li><a href="{{ route('shop.page') }}">Shop</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
+                <li class="@yield('frontendHomeActive')"><a href="{{ route('frontend.home') }}">Home</a></li>
+                <li class="@yield('frontendShopActive')"><a href="{{ route('shop.page') }}">Shop</a></li>
+                <li class="@yield('frontendContactActive')"><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -134,9 +134,9 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
-                            <li><a href="{{ route('shop.page') }}">Shop</a></li>
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li class="@yield('frontendHomeActive')"><a href="{{ route('frontend.home') }}">Home</a></li>
+                            <li class="@yield('frontendShopActive')"><a href="{{ route('shop.page') }}">Shop</a></li>
+                            <li class="@yield('frontendContactActive')"><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
