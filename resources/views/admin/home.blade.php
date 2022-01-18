@@ -10,7 +10,7 @@
   <!-- ########## START: MAIN PANEL ########## -->
   <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
-      <a class="breadcrumb-item" href="index.html">Starlight</a>
+      <a class="breadcrumb-item" href="{{ route('admin.home') }}">Islamic Store</a>
       <span class="breadcrumb-item active">Dashboard</span>
     </nav>
 
@@ -108,8 +108,8 @@
       </div><!-- row -->
 
       {{-- USE FOR PIE CHART AND GRAPHS --}}
-
-
+      
+        
 
       {{-- End FOR PIE CHART AND GRAPHS --}}
     </div>
