@@ -36,11 +36,20 @@
             <a href="{{ url('/') }}"><img src=" {{ asset('frontend') }}/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
+            @php
+                $total = App\Models\Cart::all()->where('user_ip', request()->ip())->sum(
+                    function($t){
+                        return $t->price * $t->qty;
+                    }
+                );
+                $quantity = App\Models\Cart::all()->where('user_ip', request()->ip())->sum('qty');
+                $wishlist = App\Models\Wishlist::where('user_id', Auth::id())->get();
+            @endphp
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> <span>{{ count($wishlist) }}</span></a></li>
+                <li><a href="{{ url('cart') }}"><i class="fa fa-shopping-bag"></i> <span>{{ $quantity }}</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <div class="header__cart__price">item: <span>TK: {{ $total }}</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -65,15 +74,13 @@
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a target="_blank" href="https://www.facebook.com/mahir.shahriaradnan/"><i class="fa fa-facebook"></i></a>
+            <a target="_blank" href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+            <a target="_blank" href="https://www.instagram.com/mahir_shahriar_/"><i class="fa fa-linkedin"></i></a>
         </div>
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> mahirshahriar10@gmail.com</li>
-                <li>Free Shipping for all Order of TK 250</li>
             </ul>
         </div>
     </div>
@@ -88,7 +95,6 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> mahirshahriar10@gmail.com</li>
-                                <li>Free Shipping for all Order of TK 250</li>
                             </ul>
                         </div>
                     </div>
@@ -175,12 +181,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="{{ url('/') }}"><img src="img/logo.png" alt=""></a>
+                            <a href="{{ url('/') }}"><img src=" {{ asset('frontend') }}/img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: Block F, Road-3, House-13, Mirpur 1, Dhaka</li>
-                            <li>Phone: +8801793421368</li>
-                            <li>Email: mahirshahriar10@gmail.com</li>
+                            <li>Block F, Road-3, House-13, Mirpur 1, Dhaka</li>
                         </ul>
                     </div>
                 </div>
@@ -188,36 +192,24 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
+                        <h6>Social Links</h6><br>{{-- 
                         <p>Get E-mail updates about our latest shop and special offers.</p>
                         <form action="#">
                             <input type="text" placeholder="Enter your mail">
                             <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
+                        </form> --}}
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/mahir.shahriaradnan/"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/mahir_shahriar_/"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>

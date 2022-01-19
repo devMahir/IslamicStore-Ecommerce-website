@@ -1,7 +1,7 @@
 @extends('layouts.frontend-master')
 @section('content')
 <!-- Hero Section Begin -->
-@include('pages.inc.header')
+{{-- @include('pages.inc.header') --}}
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->

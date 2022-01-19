@@ -1,7 +1,7 @@
 @extends('layouts.frontend-master')
 @section('content')
 <!-- Hero Section Begin -->
-@include('pages.inc.header')
+{{-- @include('pages.inc.header') --}}
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
@@ -79,19 +79,19 @@
                             <div class="checkout__order__products">Products <span>Total</span></div>
                             <ul>
                                 @foreach ($carts as $cart)
-                                <li>{{  $cart->product->product_name }} ({{ $cart->qty }}) <span>${{ $cart->price * $cart->qty }}</span></li>
+                                <li>{{  $cart->product->product_name }} ({{ $cart->qty }}) <span>{{ $cart->price * $cart->qty }}</span></li>
                                 @endforeach
                             </ul>
 
                             @if (Session::has('coupon'))
-                                    <div class="checkout__order__total">Total <span>$ {{ $subtotal - session()->get('coupon')['discount_amount'] }}</span></div>
+                                    <div class="checkout__order__total">Total <span>{{ $subtotal - session()->get('coupon')['discount_amount'] }}</span></div>
 
                                     <input type="hidden" name="coupon_discount" value="{{ session()->get('coupon')['coupon_discount'] }}">
                                     <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                                     <input type="hidden" name="total" value="{{ $subtotal - session()->get('coupon')['discount_amount'] }}">
                             @else
                                 <div class="checkout__order__subtotal">Subtotal 
-                                    <span>${{ $subtotal }}</span>
+                                    <span>TK {{ $subtotal }}</span>
                                 </div>
                                 <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                                 <input type="hidden" name="total" value="{{ $subtotal }}">
@@ -105,13 +105,13 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div class="checkout__input__checkbox">
+                            {{-- <div class="checkout__input__checkbox">
                                 <label for="paypal">
                                     bKash
                                     <input type="checkbox" id="bKash" value="bKash" name="payment_type">
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            </div> --}}
                             <button type="submit" class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>

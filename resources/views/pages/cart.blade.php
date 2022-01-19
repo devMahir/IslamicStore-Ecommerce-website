@@ -59,7 +59,7 @@
                                         <h5>{{ $cart->product->product_name }}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        ${{ $cart->price }}
+                                        TK {{ $cart->price }}
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">

@@ -60,7 +60,7 @@
                                     <h5>{{ $row->product->product_name }}</h5>
                                 </td>
                                 <td class="shoping__cart__price">
-                                    ${{ $row->product->price }}
+                                    TK {{ $row->product->price }}
                                 </td>
 
                                 <td class="shoping__cart__price">

@@ -102,7 +102,7 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="{{ url('product/details/'.$product->id) }}">{{ $product->product_name }}</a></h6>
-                            <h5>${{ $product->price }}</h5>
+                            <h5>TK {{ $product->price }}</h5>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
 <!-- Featured Section End -->
 
 <!-- Banner Begin -->
-<div class="banner">
+{{-- <div class="banner">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -129,7 +129,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Banner End -->
 
 <!-- Latest Product Section Begin -->
