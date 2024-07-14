@@ -8,7 +8,7 @@ Admin can add product and will have all the access after successfully logging as
 Figure 
 
 5.1.1: UI: Admin Login
- 
+
 5.1.2 Dashboard
 From here, Admin can see the dashboard after successfully logging in to the system. In Dashboard their admin sees the total number of orders first. After that, he can see the total sales just behind the total order. Next, there is a tax option where the taxes are showing which need to pay. After that, the last option is income after tax where the admin can see the total income. 
 ![image](https://github.com/user-attachments/assets/b945b91b-70e0-411f-b0f8-0eaee45badbf)
