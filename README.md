@@ -78,7 +78,7 @@ Figure 5.2.6: UI: Cart
  
 5.2.7 Registration 
 Unregistered/new users can create an account by entering their email address, username, and password. The user can log in and access all of the features after successfully registering. (stackoverflow, 2021)
- ![image](https://github.com/user-attachments/assets/bb2c7db6-d3eb-495f-baac-0939e2687de1)
+![image](https://github.com/user-attachments/assets/bb2c7db6-d3eb-495f-baac-0939e2687de1)
 Figure 5.2.7: UI: Registration
  
 5.2.8 Login
@@ -88,6 +88,6 @@ Figure 5.2.8: UI: Login
  
 5.2.9 Checkout
 Customers will add shipping information to the checkout page for purchase (stackoverflow, 2021). 
- ![image](https://github.com/user-attachments/assets/ff4675a2-721c-4a2b-a98e-ff619353c555)
+![image](https://github.com/user-attachments/assets/ff4675a2-721c-4a2b-a98e-ff619353c555)
 
 Figure 5.2.9: UI: Checkout
